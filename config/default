@@ -29,16 +29,17 @@ server {
         location / {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
-                try_files $uri $uri/ =404;
+                # try_files $uri $uri/ =404;
+                try_files $uri $uri/ /index.php?$query_string;
         }
 
         # pass PHP scripts to FastCGI server
         #
         location ~ \.php$ {
-       	    include        /etc/nginx/fastcgi_params;
+            include        /etc/nginx/fastcgi_params;
             fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-           	fastcgi_index  index.php;
-	        fastcgi_param  SCRIPT_FILENAME  /src$fastcgi_script_name;
+                fastcgi_index  index.php;
+                fastcgi_param  SCRIPT_FILENAME  /src/laravel/public$fastcgi_script_name;
         }
 
         # deny access to .htaccess files, if Apache's document root
@@ -48,4 +49,3 @@ server {
         #       deny all;
         #}
 }
-
