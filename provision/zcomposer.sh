@@ -6,3 +6,9 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
 mv composer.phar /usr/local/bin/composer
+
+export PATH=$PATH:$HOME/.config/composer/vendor/bin
+
+cd /src
+
+composer create-project --prefer-dist laravel/laravel laravel
