@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update
-sudo apt-get -y install php-fpm php7.2-zip php7.2-mbstring php7.2-xml php7.2-dev
+sudo apt-get -y install php-fpm php7.2-zip php7.2-mbstring php7.2-xml php7.2-dev php7.2-mysql
 
 # xdebug
 sudo wget https://xdebug.org/files/xdebug-2.6.0.tgz
