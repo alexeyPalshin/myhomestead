@@ -1,7 +1,6 @@
 version: '3.1'
 
 services:
-
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
@@ -11,3 +10,10 @@ services:
       MYSQL_DATABASE: homestead
       MYSQL_USER: homestead
       MYSQL_PASSWORD: secret
+
+  redis:
+    image: redis:4.0.5-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    hostname: redis
+    volumes:
+      - /vagrant/redis-data:/data
