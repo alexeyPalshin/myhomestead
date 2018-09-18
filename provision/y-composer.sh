@@ -12,3 +12,6 @@ export PATH=$PATH:$HOME/.config/composer/vendor/bin
 cd /src
 
 composer create-project --prefer-dist laravel/laravel laravel
+
+cd $_
+composer require predis/predis
