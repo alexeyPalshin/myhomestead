@@ -30,3 +30,9 @@ password: root
 
 user: homestead
 password: secret
+
+You can choose another php version using:
+```bash
+update-alternatives --config php
+```
+Off course Pre-installing it
