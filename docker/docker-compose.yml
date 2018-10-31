@@ -17,3 +17,30 @@ services:
     hostname: redis
     volumes:
       - /vagrant/redis-data:/data
+      
+  # Access api endpoint at http://localhost:9200
+  elasticsearch:
+    container_name: elasticsearch
+    image: elasticsearch
+    build:
+      context: .
+      dockerfile: ./es/Dockerfile-es
+    ports:
+      - "9200:9200"
+    expose:  # exposed by the dockerfile
+      - "9200"
+      - "9300"
+    volumes:
+      - /vagrant/es-data:/usr/share/elasticsearch/data
+      - ./es/elasticsearch.yml:/conf/elasticsearch.yml
+    # logging:
+    #   driver: none
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    restart: always      
