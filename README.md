@@ -5,8 +5,10 @@
 * Composer
 * Docker with docker-compose 
 * Mysql 5.7 as docker image
-* Laravel 
-* (Memcached, RabbitMQ, Elasticsearch ) to be added...
+* Laravel
+* Elasticsearch 5.5.1
+* Redis 
+* (Memcached, RabbitMQ) to be added...
 
 ## Usage
 ```bash
